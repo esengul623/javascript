@@ -131,7 +131,7 @@
 // Input: 15
 // Output: MasterYoda
 
-let i =10
+// let i =10
 
 
 
@@ -153,9 +153,80 @@ let i =10
 // let filteredAges = ages.filter(age => age >= 27);
 // console.log(filteredAges); 
 
+// 1. У вас есть массив из юзеров ([{name: "Имя", age: 12}, 
+
+// {name: "Имя", age: 12}]), ваша задача вывести в консоль каждого юзера в красивом формате. По типу "Имя этого юзера "Имя" и ему 12 лет".
+
+
+// 2. У вас массив товаров. Выведите его сумму используя reduce
+
+// [
+// { name: "Книга", price: 450 },
+// { name: "Ручка", price: 50 },
+// { name: "Блокнот", price: 200 },
+// { name: "Карандаш", price: 30 }
+// ]
+
+//2
+// const arr=[ 
+//     {
+//         name:"книга",price:450
+//     },
+//     {
+//                 name:"ручка",price:50
+
+//     },
+//     {
+//         name:"блокнот",price:200
+
+//     },
+//     {
+//                 name:"карандаш",price:30
+
+//     }
+// ]
+// const result = arr.reduce((acc, item) => acc + item.price, 0);
+
+// console.log( result)
+
+// Создайте в html анкету о себе и используй js дайте ей стили
+
+// 3 задача - получите число людей, которые придут на концерт и отдельно получите вместимость концерта.
+// Напишите Promise, который будет вычислять поместятся все люди в концертный зал.
+// В цепочке, если помещаются сначала возвращаем количество оставшихся свободных мест, во втором возвращаем просто текст "Добро пожаловать"
+// Отловите ошибку
+// Так или иначе выведите "Если что вернем деньги"
 
 
 
+function checkConcertCapacity(people, capacity) {
+  return new Promise((resolve, reject) => {
+    if (people <= capacity) {
+      resolve(capacity - people); // сколько свободных мест
+    } else {
+      reject("Мест не хватает");
+    }
+  });
+}
+
+// Пример данных
+const people = 120;
+const capacity = 150;
+
+checkConcertCapacity(people, capacity)
+  .then((freeSeats) => {
+    console.log(`Свободных мест: ${freeSeats}`);
+    return "Добро пожаловать";
+  })
+  .then((message) => {
+    console.log(message);
+  })
+  .catch((error) => {
+    console.log("Ошибка:", error);
+  })
+  .finally(() => {
+    console.log("Если что вернем деньги");
+  });
 
 
 
