@@ -199,36 +199,54 @@
 
 
 
-function checkConcertCapacity(people, capacity) {
-  return new Promise((resolve, reject) => {
-    if (people <= capacity) {
-      resolve(capacity - people); // сколько свободных мест
-    } else {
-      reject("Мест не хватает");
-    }
-  });
-}
+// function checkConcertCapacity(people, capacity) {
+//   return new Promise((resolve, reject) => {
+//     if (people <= capacity) {
+//       resolve(capacity - people); // сколько свободных мест
+//     } else {
+//       reject("Мест не хватает");
+//     }
+//   });
+// }
 
-// Пример данных
-const people = 120;
-const capacity = 150;
+// // Пример данных
+// const people = 120;
+// const capacity = 150;
 
-checkConcertCapacity(people, capacity)
-  .then((freeSeats) => {
-    console.log(`Свободных мест: ${freeSeats}`);
-    return "Добро пожаловать";
-  })
-  .then((message) => {
-    console.log(message);
-  })
-  .catch((error) => {
-    console.log("Ошибка:", error);
-  })
-  .finally(() => {
-    console.log("Если что вернем деньги");
-  });
+// checkConcertCapacity(people, capacity)
+//   .then((freeSeats) => {
+//     console.log(`Свободных мест: ${freeSeats}`);
+//     return "Добро пожаловать";
+//   })
+//   .then((message) => {
+//     console.log(message);
+//   })
+//   .catch((error) => {
+//     console.log("Ошибка:", error);
+//   })
+//   .finally(() => {
+//     console.log("Если что вернем деньги");
+//   });
 
 
+
+// Самостоятельно реализовать все запросы на все методы для https://fakestoreapi.com/docs#tag/Carts/operation/getAllCarts
+
+fetch('https://fakestoreapi.com/carts')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+fetch('https://fakestoreapi.com/products/1')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+
+
+fetch('https://fakestoreapi.com/products/1', {
+  method: 'DELETE'
+})
+  .then(response => response.json())
+  .then(data => console.log(data));
 
 
 
